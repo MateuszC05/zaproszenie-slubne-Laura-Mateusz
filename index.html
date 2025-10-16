@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura & Mateusz | Zaproszenie na Ślub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Cormorant+Garamond:wght@400;600;700&display=swap');
+
+        :root {
+            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Cormorant Garamond', serif;
+            --color-text: #333;
+            --color-background: #fdfdfd;
+            --color-dark: #1a1a1a;
+            --color-light-gray: #f5f5f5;
+            --container-width: 960px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 1px;
+            background-color: var(--color-text);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p, a {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        section {
+            padding: 5rem 1rem;
+        }
+
+        .hero {
+            padding: 5rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 80vh;
+        }
+
+        .hero-content .date {
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            letter-spacing: 0.2em;
+            margin: 1rem 0 2rem;
+        }
+
+        .hero-images {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-images img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            border: 1px solid #eee;
+        }
+
+        .schedule {
+            background-color: var(--color-light-gray);
+        }
+
+        .schedule-items {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .schedule-item {
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .schedule-item h3 {
+            font-size: 1.8rem;
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        .location h3 {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            border: 1px solid var(--color-text);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .countdown-section {
+            background-color: var(--color-dark);
+            color: var(--color-background);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.postimg.cc/NFbBWqdr/DSC07216.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .countdown-section h2::after {
+             background-color: var(--color-background);
+        }
+
+        .countdown-timer {
+            font-size: 3rem;
+            font-family: var(--font-heading);
+            letter-spacing: 0.1em;
+            margin-top: 2rem;
+        }
+
+        .details {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .detail-item {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .detail-item h2 {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-background);
+            padding: 3rem 1rem;
+            font-family: var(--font-heading);
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--color-background);
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .hero {
+                min-height: auto;
+            }
+            .hero-images img {
+                width: 100px;
+                height: 133px;
+            }
+            section {
+                padding: 3rem 1rem;
+            }
+            .schedule-items {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .details {
+                flex-direction: column;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Laura & Mateusz</h1>
+            <p class="date">01 • 08 • 2026</p>
+            <div class="hero-images">
+                <img src="https://i.postimg.cc/tTZ6qkKG/Full-Size-Render-1.jpg" alt="Para Młoda 1">
+                <img src="https://i.postimg.cc/ZRVQmbhh/DSC07220.jpg" alt="Para Młoda 2">
+            </div>
+            <p>Z radością zapraszamy Was na nasz wyjątkowy dzień.</p>
+        </div>
+    </header>
+
+    <section class="schedule">
+        <h2>HARMONOGRAM</h2>
+        <div class="schedule-items">
+            <div class="schedule-item">
+                <h3>17:00</h3>
+                <p>Ceremonia</p>
+            </div>
+            <div class="schedule-item">
+                <h3>18:00</h3>
+                <p>Życzenia i Aperitif</p>
+            </div>
+            <div class="schedule-item">
+                <h3>19:00</h3>
+                <p>Obiad</p>
+            </div>
+            <div class="schedule-item">
+                <h3>20:30</h3>
+                <p>Zabawa do białego rana</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="location">
+        <h2>LOKALIZACJA</h2>
+        <p>Ślub oraz wesele odbędzie się w</p>
+        <h3>Rezydencja Protasy</h3>
+        <p>Kolonia Protasy 47, 16-060 Zabłudów</p>
+        <a href="https://www.google.com/maps?q=Rezydencja+Protasy,+Protasy+47,+16-060+Protasy" target="_blank" class="map-button">Zobacz na mapie</a>
+    </section>
+
+    <section class="countdown-section">
+        <div class="countdown-container">
+            <h2>Do naszego dnia pozostało</h2>
+            <div id="countdown" class="countdown-timer">
+                <!-- Countdown will be generated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="details">
+        <div class="detail-item">
+            <h2>PREZENTY</h2>
+            <p>Preferujemy koperty oraz wino zamiast kwiatów.</p>
+        </div>
+        <div class="detail-item">
+            <h2>POTWIERDZENIE</h2>
+            <p>Prosimy o potwierdzenie przybycia do 05.07.2026</p>
+            <p>Mateusz: <a href="tel:570074907">570 074 907</a></p>
+            <p>Laura: <a href="tel:694680059">694 680 059</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Laura & Mateusz</p>
+        <div class="footer-links">
+            <a href="#">Zdjęcia (wkrótce)</a>
+            <a href="#">Film (wkrótce)</a>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const weddingDate = new Date("August 1, 2026 17:00:00").getTime();
+            const countdownElement = document.getElementById('countdown');
+
+            if (!countdownElement) {
+                return;
+            }
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                if (distance < 0) {
+                    countdownElement.innerHTML = "Wydarzyło się!";
+                    clearInterval(interval);
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `
+                    <span>${days}<br><small>dni</small></span>
+                    <span>${hours}<br><small>godzin</small></span>
+                    <span>${minutes}<br><small>minut</small></span>
+                    <span>${seconds}<br><small>sekund</small></span>
+                `;
+            };
+
+            const interval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            // Style for countdown spans
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .countdown-timer span {
+                    display: inline-block;
+                    margin: 0 1rem;
+                }
+                .countdown-timer span small {
+                    font-size: 1rem;
+                    font-family: var(--font-body);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    font-weight: 300;
+                    display: block;
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+    </script>
+
+</body>
+</html>
